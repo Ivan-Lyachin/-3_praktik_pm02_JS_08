@@ -9,231 +9,31 @@
   <body>
     <h1>Замыкания</h1>
     <section>
-      <p><b>Task 1.</b></p>
-      <p>
-        Напишите анонимную функцию применяя замыкание. Внутри функции создайте
-        переменную равную 75, и повесьте на кнопку .b-1 событие клик и функцию,
-        которая увеличивает переменную на 1 и присваивает блоку .out-1 ширину
-        равную переменной + 'px'. Анонимная функция замыкания должна запускаться
-        при загрузке файла.
-      </p>
-      <div
-        class="out-1"
-        style="background: orangered; width: 75px; margin: 10px;"
-      >
-        out-1
-      </div>
-      <button class="b-1">Task 1</button>
-    </section>
-    <script>
-      ;(function () {
-        let w = 75 // тут ваша переменная
-        document.querySelector('.b-1').onclick = function () {
-          // увеличиваем на 1
-          // присваиваем .out-1 новую ширину
-        }
-      })()
-
-      // тут прописываете запуск
-    </script>
-    <section>
-      <p><b>Task 2.</b></p>
-      <p>
-        Усложним предыдущую задачу. Создайте анонимную функцию замыкания, в
-        которой создайте переменные w = 75 и h = 30. Создайте две функции, одна
-        запускается при клике на кнопку .b-2-1 и увеличивает ширину блока
-        .out-2, вторая запускается при клике на кнопку .b-2-2 и увеличивает
-        высоту блока .out-2. Анонимная функция замыкания должна запускаться при
-        загрузке файла.
-      </p>
-      <button class="b-2-1">Task 2-1</button>
-      <button class="b-2-2">Task 2-2</button>
-      <div
-        class="out-2"
-        style="background: orangered; width: 75px; height: 30px; margin: 10px;"
-      >
-        out-2
-      </div>
-    </section>
-    <script>
-      ;(function () {})()
-    </script>
-    <section>
-      <p><b>Task 3.</b></p>
-      <p>
-        В скобках напишите код функции замыкания, которая создает переменную
-        count = 0 и возвращает анонимную функцию, которая в свою очередь
-        увеличивает count на 1 и возвращает его.
-      </p>
-    </section>
-    <script>
-      // let count3 = (function () {
-      // тут ваш код
-      // })();
-      // console.log(count3());
-      // console.log(count3());
-    </script>
-    <section>
-      <p><b>Task 4.</b></p>
-      <p>
-        Напишите функцию замыкания createCount. Внутри функции создайте count
-        равный переданному в createCount аргументу ( по умолчанию равен 0) и
-        сделайте return функции, которая увеличивает count на 1 и возвращает
-        его.
-      </p>
-    </section>
-    <script>
-      // function createCount(тут аргумент) {
-      // };
-
-      // let count4 = createCount(444);
-
-      // console.log(count4());
-      // console.log(count4());
-    </script>
-    <section>
       <p><b>Task 5.</b></p>
       <p>
         Напишите функцию замыкания generatePassword, которая принимает аргумент
         - массив символов, и содержит в себе две функции. Первая функция
-        randomInteger(min, max) возрвщает случайное целое число в диапазоне, а
+        randomInteger(min, max) возвращает случайное целое число в диапазоне, а
         вторую функцию возвращает (делает return). Данная функция, которую
         возвращают должна возвращать случайный символ из массива переданного
         функции generatePassword в качестве аргумента.
       </p>
     </section>
     <script>
-      // function generatePassword(arr) {
+      function generatePassword(arr) {
+        function randomInteger(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
-      // }
+        function getRandomSymbol() {
+          return arr[randomInteger(0, arr.length - 1)];
+        }
 
-      // let password = generatePassword(['b', 'y', 'Y', 'b', 'z']);
-      // console.log(password());
-    </script>
-    <section>
-      <p><b>Task 6.</b></p>
-      <p>
-        Напишите функцию замыкания generatePassword2, которая принимает два
-        аргумента - массив символов (arr), и длину пароля(n). Функция содержит в
-        себе две функции. Первая функция randomInteger(min, max) , а вторую
-        функцию возвращает (делает return). Данная функция, которую возвращают
-        должна возвращать строку длинной n из символов массива arr. Символы
-        выбираются случайным образом.
-      </p>
-    </section>
-    <script>
-      // function generatePassword2(arr, n) {
-      // }
-
-      // let password2 = generatePassword2(['b', 'y', 'Y', 'b', 'z'], 4);
-      // console.log(password2());
-    </script>
-
-    <section>
-      <p><b>Task 7.</b></p>
-      <p>
-        Напишите функцию замыкания createElement, которая принимает 2 аргумента,
-        первый название тега (elem), второй текст в теге (text). Функция
-        createElement должна возвращать функцию, которая через createElement
-        создает elem и через innerHTML добавляет в него текст. Созданный тег
-        должен быть возвращен.
-      </p>
-      <div class="out-7">out-7</div>
-    </section>
-    <script>
-      // function generateElement(elem, text) {
-
-      // }
-
-      // let divCreator = generateElement('div', 'hello');
-      // let spanCreator = generateElement('span', 'hi');
-      // document.querySelector('.out-7').append(divCreator());
-      // document.querySelector('.out-7').append(divCreator());
-      // document.querySelector('.out-7').append(spanCreator());
-      // document.querySelector('.out-7').append(spanCreator());
-    </script>
-
-    <section>
-      <p><b>Task 8.</b></p>
-      <p>
-        Напишите функцию замыкания createElement2, которая принимает 1 аргумент
-        - название тега (elem). Функция createElement2 должна возвращать
-        функцию, которая через createElement создает elem и через innerHTML
-        добавляет в него текст переданный в данную функцию как аргумент text.
-        Созданный тег должен быть возвращен.
-      </p>
-      <div class="out-8">out-8</div>
-    </section>
-    <script>
-      // function generateElement2(elem) {
-      //     return function (t) {
-      //     }
-      // }
-
-      // let divCreator2 = generateElement2('div');
-      // let spanCreator2 = generateElement2('span');
-      // document.querySelector('.out-8').append(divCreator2('ex1'));
-      // document.querySelector('.out-8').append(divCreator2('ex2'));
-      // document.querySelector('.out-8').append(spanCreator2('ex3'));
-      // document.querySelector('.out-8').append(spanCreator2('ex4'));
-    </script>
-
-    <section>
-      <p><b>Task 9.</b></p>
-      <p>
-        Напишите функцию замыкания generateDay, внутри которой создан массив
-        days с именами дней недели и return анонимной функции, которая получает
-        аргумент n и возвращает days[n-1] день недели.
-      </p>
-    </section>
-    <script>
-      // function generateDay() {
-      //     const days = [
-      //         'Monday',
-      //         'Tuesday',
-      //         'Wednesday',
-      //         'Thursday',
-      //         'Friday',
-      //         'Saturday',
-      //         'Sunday'
-      //     ];
-
-      //     return function (n) {
-      //     };
-      // }
-
-      // const day = generateDay();
-      // console.log(day(2))
-      // console.log(day(3))
-    </script>
-    <section>
-      <p><b>Task 10.</b></p>
-      <p>
-        Напишите функцию замыкания generateMonth, внутри которой создан массив
-        month с именами дней недели и return анонимной функции, которая получает
-        аргумент n и возвращает month[n-1] день недели.
-      </p>
-    </section>
-    <script>
-      function generateMonth() {
-        const month = [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ]
+        return getRandomSymbol;
       }
-      // const month = generateMonth();
-      // console.log(generateMonth(2));
-      // console.log(generateMonth(3));
+
+      let password = generatePassword(["b", "y", "Y", "b", "z", "j", "O"]);
+      console.log(password());
     </script>
   </body>
 </html>
